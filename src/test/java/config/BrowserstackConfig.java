@@ -17,22 +17,4 @@ public interface BrowserstackConfig extends Config {
     @Key("baseURL")
     String baseUrl();
 
-    @Key("bs")
-    String bs();
-
-    @Key("device")
-    String device();
-
-    @Key("osVersion")
-    String osVersion();
-
-    @Key("project")
-    String projectName();
-
-    @Key("build")
-    String buildName();
-
-    @Key("name")
-    String testName();
-
 }

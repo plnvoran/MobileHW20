@@ -2,6 +2,7 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackConfig;
+import config.MobileConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -14,6 +15,7 @@ import java.net.URL;
 
 public class BrowserstackDriver implements WebDriverProvider {
     static  BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
+    static MobileConfig mobileConfig = ConfigFactory.create(MobileConfig.class, System.getProperties());
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
@@ -27,15 +29,17 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("browserstack.key", config.password());
 
         // Set URL of the application under test
-        mutableCapabilities.setCapability("app", config.bs());
+        mutableCapabilities.setCapability("app", mobileConfig.bs());
+        System.out.println("print 1 ######################");
+        System.out.println(mobileConfig.bs());
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", config.device());
-        mutableCapabilities.setCapability("os_version", config.osVersion());
+        mutableCapabilities.setCapability("device", mobileConfig.device());
+        mutableCapabilities.setCapability("os_version", mobileConfig.osVersion());
 
         // Set other BrowserStack capabilities
-        mutableCapabilities.setCapability("project", config.projectName());
-        mutableCapabilities.setCapability("build", config.buildName());
-        mutableCapabilities.setCapability("name", config.testName());
+        mutableCapabilities.setCapability("project", mobileConfig.projectName());
+        mutableCapabilities.setCapability("build", mobileConfig.buildName());
+        mutableCapabilities.setCapability("name", mobileConfig.testName());
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
