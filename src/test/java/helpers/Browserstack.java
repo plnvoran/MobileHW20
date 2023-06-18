@@ -8,8 +8,10 @@ import static io.restassured.RestAssured.given;
 
 
 public class Browserstack {
+
+    static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
     public static String videoUrl(String sessionId) {
-        BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
+
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
