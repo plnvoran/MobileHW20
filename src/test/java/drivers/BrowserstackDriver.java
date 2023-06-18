@@ -2,12 +2,10 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackConfig;
-import io.appium.java_client.android.AndroidDriver;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.annotation.Nonnull;
@@ -33,15 +31,15 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("os_version", config.osVersion());
 
         // Set other BrowserStack capabilities
-        mutableCapabilities.setCapability("project", "First Java Project");
-        mutableCapabilities.setCapability("build", "browserstack-build-1");
-        mutableCapabilities.setCapability("name", "first_test");
+        mutableCapabilities.setCapability("project", config.projectName());
+        mutableCapabilities.setCapability("build", config.buildName());
+        mutableCapabilities.setCapability("name", config.testName());
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
         try {
             return new RemoteWebDriver(
-                    new URL("http://hub.browserstack.com/wd/hub"), mutableCapabilities);
+                    new URL(config.baseUrl()), mutableCapabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
