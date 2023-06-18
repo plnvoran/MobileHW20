@@ -22,9 +22,8 @@ public class AndroidTests extends TestBase {
         step("Verify content found", () ->
             $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_container"))
                     .shouldHave(sizeGreaterThan(0)));
-        step("Verify content found", () ->
+        step("Open the first article", () ->
                 $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_container"))
                         .first().click());
     }
-
 }
