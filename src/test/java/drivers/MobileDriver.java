@@ -47,7 +47,7 @@ public class MobileDriver implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk";
+        String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/releases/tag/latest/app-alpha-universal-release.apk";
         String appPath = mobileDriverConfig.mobileAppPath();
 
         File app = new File(appPath);

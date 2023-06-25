@@ -16,9 +16,6 @@ public class TestBase {
     public static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = BrowserstackDriver.class.getName();
-        Configuration.browserSize = null;
-
 
         if (deviceHost == null) {
             deviceHost = "mobile";
@@ -33,9 +30,11 @@ public class TestBase {
                 Configuration.browser = MobileDriver.class.getName();
                 break;
         }
+
         Configuration.timeout = 15000;
         Configuration.pageLoadTimeout = 15000;
         Configuration.browserSize = null;
+
     }
 
 
