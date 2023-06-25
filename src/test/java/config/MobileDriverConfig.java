@@ -9,7 +9,7 @@ public interface MobileDriverConfig extends Config {
     @Key("mobile.version")
     String mobileVersion();
 
-    @Key("mobile.device")
+    @Key("mobile.deviceName")
     String mobileDevice();
 
     @Key("mobile.app.path")
