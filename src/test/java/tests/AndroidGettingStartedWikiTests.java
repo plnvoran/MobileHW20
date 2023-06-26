@@ -12,34 +12,34 @@ import static io.qameta.allure.Allure.step;
 @Tag("mobile")
 public class AndroidGettingStartedWikiTests extends TestBase {
 
-    @DisplayName("Getting started (onboarding screen)")
+    @DisplayName("Getting started - onboarding")
     @Test
     void checkGettingStartedOnboardingScreenTest () {
-        step("Check 'The Free Encyclopedia …in over 300 languages' text is visible", () -> {
+        step("Check that the text string 'The Free Encyclopedia …in over 300 languages' is visible on the page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
         });
 
-        step("Click on 'Сontinue'", () ->
+        step("Click on the link 'Continue'", () ->
                 $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
 
-        step("Check 'New ways to explore' text is visible", () -> {
+        step("Check that the text string 'New ways to explore' is visible on the page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("New ways to explore"));
         });
 
-        step("Click on 'Сontinue'", () ->
+        step("Click on the link 'Continue'", () ->
                 $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
 
-        step("Check 'Reading lists with sync' text is visible", () -> {
+        step("Check that the text string 'Reading lists with sync' is visible on the page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("Reading lists with sync"));
         });
 
-        step("Click on 'Сontinue'", () ->
+        step("Click on the link 'Continue'", () ->
                 $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
 
-        step("Check 'Send anonymous data' text is visible", () -> {
+        step("Check that the text string 'Send anonymous data' is visible on the page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("Send anonymous data"));
         });

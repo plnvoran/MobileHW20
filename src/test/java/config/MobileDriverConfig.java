@@ -29,8 +29,4 @@ public interface MobileDriverConfig extends Config {
 
     @Key("mobile.url")
     String mobileUrl();
-
-    @Key("deviceHost")
-    String deviceHost();
-
 }

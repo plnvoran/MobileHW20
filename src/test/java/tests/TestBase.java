@@ -37,8 +37,6 @@ public class TestBase {
 
     }
 
-
-
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -52,8 +50,9 @@ public class TestBase {
         Attach.pageSource();
 
         closeWebDriver();
-
-        Attach.addVideo(sessionId);
+        if (!deviceHost.equals("mobile")) {
+            Attach.addVideo(sessionId);
+        }
     }
 
 }
