@@ -7,7 +7,6 @@ import static helpers.CustomApiListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 
-
 public class Browserstack {
 
     static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());

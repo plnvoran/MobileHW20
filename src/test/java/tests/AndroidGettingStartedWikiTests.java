@@ -14,7 +14,7 @@ public class AndroidGettingStartedWikiTests extends TestBase {
 
     @DisplayName("Getting started - onboarding")
     @Test
-    void checkGettingStartedOnboardingScreenTest () {
+    void checkGettingStartedOnboardingScreenTest() {
         step("Check that the text string 'The Free Encyclopedia …in over 300 languages' is visible on the page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
